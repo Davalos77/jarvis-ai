@@ -21,29 +21,11 @@ export default function Chat() {
 
   return (
     <main className="flex flex-col max-h-dvh absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]">
-      <header className="container flex  flex-col items-center justify-center p-4 border-b border-slate-400 w-full max-w-3xl mx-auto ">
+      <header className="container flex  flex-col items-center justify-center p-5  w-full max-w-3xl mx-auto ">
         <h1 className="text-2xl font-extrabold text-slate-300">Jarvis-ai</h1>
       </header>
 
-      <section className="p-4">
-        <form
-          onSubmit={handleSubmit}
-          className="flex w-full max-w-3xl mx-auto items-center "
-        >
-          <Input
-            className="flex-1 min-h-[40px] bg-black border-slate-400 text-slate-300"
-            placeholder="Type your question here..."
-            type="text"
-            value={input}
-            onChange={handleInputChange}
-          />
-          <Button className="ml-2 text-slate-300" type="submit">
-            Submit
-          </Button>
-        </form>
-      </section>
-
-      <section className="container px-0 pb-10 flex flex-col flex-grow gap-4 mx-auto max-w-3xl">
+      <section className="container px-0 pb- flex flex-col flex-grow gap-4 mx-auto max-w-3xl">
         {/* <Image
           src="/images/jarvis-left.png"
           alt="jarvis left"
@@ -60,7 +42,7 @@ export default function Chat() {
         /> */}
         <ul
           ref={chatParent}
-          className="h-1 p-4 flex-grow bg-muted/50 rounded-lg overflow-y-auto flex flex-col gap-4 bg-gray-900 "
+          className="h-1 p-4 flex-grow bg-muted/50 rounded-lg overflow-y-auto flex flex-col gap-4 bg-gray-900 scrollbar-hide"
         >
           {messages.map((m, index) => (
             <>
@@ -89,7 +71,24 @@ export default function Chat() {
           ))}
         </ul>
       </section>
-      <div></div>
+
+      <section className="py-1.5">
+        <form
+          onSubmit={handleSubmit}
+          className="flex w-full max-w-3xl mx-auto items-center pb-20"
+        >
+          <Input
+            className="flex-1 min-h-[40px] bg-black border-slate-400 text-slate-300 "
+            placeholder="Type your question here..."
+            type="text"
+            value={input}
+            onChange={handleInputChange}
+          />
+          <Button className="ml-2 text-slate-300" type="submit">
+            Submit
+          </Button>
+        </form>
+      </section>
     </main>
   );
 }
